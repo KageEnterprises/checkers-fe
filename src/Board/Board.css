@@ -1,0 +1,11 @@
+.checkerBoard {
+  box-sizing: border-box;
+  border: 3px solid gold;
+  overflow: hidden;
+  position: relative;
+  flex-basis: 640px;
+
+  display: flex;
+  flex-direction: row-reverse;
+  flex-wrap: wrap-reverse;
+}

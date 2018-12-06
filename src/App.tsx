@@ -1,38 +1,48 @@
-import { Game } from 'checkers-engine'
+import {
+  Game,
+  IGameBoard
+} from 'checkers-engine'
 import React, { Component } from 'react'
-import logo from './logo.svg'
+
+import Board from './Board/Board'
+
 import './App.css'
 
-class App extends Component {
+interface IState {
+  game: {
+    board: IGameBoard
+  }
+}
+
+class App extends Component<{}, IState> {
   state = {
-    itWorked: false
+    game: {
+      board: {
+        height: 0,
+        tiles: [],
+        width: 0
+      }
+    }
   }
 
-  componentDidMount() {
-    const game = new Game()
+  componentDidMount () {
+    const game = new Game({
+      board: {
+        height: 8,
+        width: 8
+      }
+    })
 
-    if (game.game) this.setState({ itWorked: true })
+    this.setState({ game })
   }
 
   render () {
-    const { itWorked } = this.state
+    const { game } = this.state
+    const { board } = game
 
     return (
       <div className='App'>
-        <header className='App-header'>
-          <img src={logo} className='App-logo' alt='logo' />
-          <p>
-            Edit <code>src/App.tsx</code> and save to reload.
-          </p>
-          <a
-            className='App-link'
-            href='https://reactjs.org'
-            target='_blank'
-            rel='noopener noreferrer'
-          >
-            Learn React {itWorked && 'It worked!!!'}
-          </a>
-        </header>
+        <Board {...board} />
       </div>
     )
   }
