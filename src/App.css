@@ -1,5 +1,4 @@
 @import './Board/Board.css';
-@import './Tile/Tile.css';
 
 .App {
   display: flex;

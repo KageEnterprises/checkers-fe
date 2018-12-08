@@ -16,7 +16,8 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "standard": "standard \"**/*.ts\" \"**/*.tsx\" --fix",
+    "standard": "standard \"**/*.ts\" \"**/*.tsx\"",
+    "standardfix": "standard \"**/*.ts\" \"**/*.tsx\" --fix",
     "test": "npm run standard && react-scripts test",
     "eject": "react-scripts eject"
   },

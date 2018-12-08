@@ -1,6 +1,6 @@
 import {
-  Game,
-  IGameBoard
+  Board as GameBoard,
+  GameMaker
 } from 'checkers-engine'
 import React, { Component } from 'react'
 
@@ -10,7 +10,7 @@ import './App.css'
 
 interface IState {
   game: {
-    board: IGameBoard
+    board: GameBoard
   }
 }
 
@@ -26,12 +26,7 @@ class App extends Component<{}, IState> {
   }
 
   componentDidMount () {
-    const game = new Game({
-      board: {
-        height: 8,
-        width: 8
-      }
-    })
+    const game = GameMaker.create(0)
 
     this.setState({ game })
   }

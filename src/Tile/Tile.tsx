@@ -1,4 +1,4 @@
-import { IGameBoardTile } from 'checkers-engine'
+import { Tile as IGameBoardTile } from 'checkers-engine'
 import React, { Component } from 'react'
 
 interface ITile extends IGameBoardTile {
@@ -6,26 +6,21 @@ interface ITile extends IGameBoardTile {
 }
 
 class Tile extends Component<ITile> {
-
-  render() {
+  render () {
     const {
       boardWidth,
-      displayId,
-      row,
       valid
     } = this.props
 
     return (
       <div
-        className="tile"
+        className='tile'
         style={{
           backgroundColor: valid ? 'green' : 'white',
           flex: `0 0 ${100 / boardWidth}%`,
           paddingTop: `${100 / boardWidth}%`
         }}
-      >
-        <div className='tile-contents'>{displayId > 0 ? displayId : ''}</div>
-      </div>
+      />
     )
   }
 }
